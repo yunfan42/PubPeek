@@ -1,0 +1,22 @@
+{
+  "network": {
+    "timeout": 300,
+    "sleep_interval": 3,
+    "proxy": {
+      "enabled": false,
+      "http": "http://127.0.0.1:33210",
+      "https": "http://127.0.0.1:33210"
+    }
+  },
+  "data": {
+    "ccf_file": "data/CCF2022-UTF8.csv",
+    "cas_file": "data/FQBJCR2025-UTF8.csv"
+  },
+  "paths": {
+    "users_dir": "users",
+    "data_dir": "data"
+  },
+  "cache": {
+    "dblp_cache_file": "cache/dblp_cache.json"
+  }
+} 

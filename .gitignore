@@ -1,0 +1,47 @@
+# Python缓存文件
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 发行版
+*.egg-info/
+dist/
+build/
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# 缓存文件
+cache/
+*.cache
+
+# 临时文件
+*.tmp
+*.temp
+
+# 日志文件
+*.log
+
+# 备份文件
+*.bak
+*.backup
+
+# 用户数据 - 只保留default_user，忽略其他用户目录
+users/*
+!users/default_user/
+
+# 环境变量文件
+.env
+.env.local
+
+# Jupyter Notebook检查点
+.ipynb_checkpoints/ 
