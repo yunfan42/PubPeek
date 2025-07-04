@@ -517,4 +517,8 @@ This is something we've always wanted to do, but since Google Scholar doesn't pr
 
 ## License
 
-This project is licensed under the MIT License. 
+This project is licensed under the MIT License.
+
+## Acknowledgments
+
+The CCF and CAS ranking data used in this project are sourced from [https://github.com/hitfyd/ShowJCR](https://github.com/hitfyd/ShowJCR). We sincerely appreciate their contribution.

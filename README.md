@@ -114,7 +114,7 @@ $ python run.py
 7. 保存结果和统计分析...
 
 🎉 作者 张三 的文献处理完成！
-📊 处理结果已保存到: /path/to/PubPeek/users/Author_Name/processedgit
+📊 处理结果已保存到: /path/to/PubPeek/users/Author_Name/processed
 
 ==================================================
 是否继续搜索其他作者？(y/n): n
@@ -519,4 +519,8 @@ df_deduplicated = df  # 直接使用原始数据
 
 ## 许可证
 
-本项目采用MIT许可证。 
+本项目采用MIT许可证。
+
+## 致谢
+
+本项目中使用的CCF和中科院分区资料来自于 [https://github.com/hitfyd/ShowJCR](https://github.com/hitfyd/ShowJCR)，特此感谢。
