@@ -1,4 +1,4 @@
-# PubPeek - 学者文献分析工具
+# PubPeek - 个人学术文献分析工具
 
 [English](README_EN.md) | 中文
 
