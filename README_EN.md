@@ -53,48 +53,48 @@ $ python run.py
 ==================================================
 
 ==================================================
-Please enter the author name to search (type 'q' to quit): AUTHOR
+Please enter the author name to search (type 'q' to quit): John Smith
 
-🔍 Searching for author: AUTHOR
+🔍 Searching for author: John Smith
 🌐 Using proxy: http://127.0.0.1:33210
 
 🎯 Found the following author candidates:
 ================================================================================
-1. Anthor AUTHOR
-   ID: 3457502
-   URL: https://dblp.org/pid/121/0989
-   Aliases: Hao-Feng Wang
+1. Another John Smith
+   ID: 87654321
+   URL: https://dblp.org/pid/yy/yyyy
+   Aliases: John Smith Alias
    Affiliation: Unknown
 --------------------------------------------------------------------------------
-2. AUTHOR
-   ID: 3457501
-   URL: https://dblp.org/pid/63/4317
-   Affiliation: Tongji University, College of Design and Innovation, Shanghai, China; Shanghai Jiao Tong University, Shanghai, China
+2. John Smith
+   ID: 12345678
+   URL: https://dblp.org/pid/xx/xxxx
+   Affiliation: University Name, College Name, City, Country
 --------------------------------------------------------------------------------
 
 Please enter a number (1-2) or type 'q' to quit: 2
 
-✅ You selected: AUTHOR
+✅ You selected: John Smith
 
 📋 Final selected author information:
-   Name: AUTHOR
-   ID: 3457501
-   URL: https://dblp.org/pid/63/4317
-   Affiliation: Tongji University, College of Design and Innovation, Shanghai, China; Shanghai Jiao Tong University, Shanghai, China
+   Name: John Smith
+   ID: 12345678
+   URL: https://dblp.org/pid/xx/xxxx
+   Affiliation: University Name, College Name, City, Country
 
-📁 Creating author directory: /path/to/PubPeek/users/Haofen_Wang
-📁 Creating raw subdirectory: /path/to/PubPeek/users/Haofen_Wang/raw
-📥 Downloading bibtex file: https://dblp.org/pid/63/4317.bib?param=1
-✅ Bibtex file saved successfully: /path/to/PubPeek/users/Haofen_Wang/raw/Haofen_Wang_publications.bib
+📁 Creating author directory: /path/to/PubPeek/users/Author_Name
+📁 Creating raw subdirectory: /path/to/PubPeek/users/Author_Name/raw
+📥 Downloading bibtex file: https://dblp.org/pid/xx/xxxx.bib?param=1
+✅ Bibtex file saved successfully: /path/to/PubPeek/users/Author_Name/raw/Author_Name_publications.bib
 📊 Downloaded 180 literature entries
 
-🎉 Setup for author AUTHOR completed!
-📁 Author directory: /path/to/PubPeek/users/Haofen_Wang
-📄 Bibtex file: /path/to/PubPeek/users/Haofen_Wang/raw/Haofen_Wang_publications.bib
+🎉 Setup for author John Smith completed!
+📁 Author directory: /path/to/PubPeek/users/Author_Name
+📄 Bibtex file: /path/to/PubPeek/users/Author_Name/raw/Author_Name_publications.bib
 
 🤔 Would you like to perform literature analysis immediately? (y/n): y
 
-📊 Starting literature processing for author AUTHOR...
+📊 Starting literature processing for author John Smith...
 Successfully loaded CCF data: 644 records
 Successfully loaded CAS data: 21772 records
 1. Parsing BibTeX file...
@@ -112,8 +112,8 @@ Successfully loaded CAS data: 21772 records
 6. Generating statistical summary...
 7. Saving results and statistical analysis...
 
-🎉 Literature processing for author AUTHOR completed!
-📊 Processing results saved to: /path/to/PubPeek/users/Haofen_Wang/processed
+🎉 Literature processing for author John Smith completed!
+📊 Processing results saved to: /path/to/PubPeek/users/Author_Name/processed
 
 ==================================================
 Would you like to continue searching for other authors? (y/n): n

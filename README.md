@@ -54,48 +54,48 @@ $ python run.py
 ==================================================
 
 ==================================================
-请输入要搜索的作者姓名（输入 'q' 退出）: AUTHOR
+请输入要搜索的作者姓名（输入 'q' 退出）: 张三
 
-🔍 正在搜索作者: AUTHOR
+🔍 正在搜索作者: 张三
 🌐 使用代理：http://127.0.0.1:33210
 
 🎯 找到以下作者候选项：
 ================================================================================
-1. Another AUTHOR
-   ID: 3457502
-   URL: https://dblp.org/pid/121/0989
-   别名: Hao-Feng Wang
+1. 另一个张三
+   ID: 87654321
+   URL: https://dblp.org/pid/yy/yyyy
+   别名: 张三别名
    单位: 未知
 --------------------------------------------------------------------------------
-2. AUTHOR
-   ID: 3457501
-   URL: https://dblp.org/pid/63/4317
-   单位: Tongji University, College of Design and Innovation, Shanghai, China; Shanghai Jiao Tong University, Shanghai, China
+2. 张三
+   ID: 12345678
+   URL: https://dblp.org/pid/xx/xxxx
+   单位: 某某大学，某某学院，某某城市，某某国家
 --------------------------------------------------------------------------------
 
 请输入序号 (1-2) 或输入 'q' 退出: 2
 
-✅ 您选择了: AUTHOR
+✅ 您选择了: 张三
 
 📋 最终选择的作者信息：
-   姓名: AUTHOR
-   ID: 3457501
-   URL: https://dblp.org/pid/63/4317
-   单位: Tongji University, College of Design and Innovation, Shanghai, China; Shanghai Jiao Tong University, Shanghai, China
+   姓名: 张三
+   ID: 12345678
+   URL: https://dblp.org/pid/xx/xxxx
+   单位: 某某大学，某某学院，某某城市，某某国家
 
-📁 创建作者目录: /path/to/PubPeek/users/Haofen_Wang
-📁 创建raw子目录: /path/to/PubPeek/users/Haofen_Wang/raw
-📥 正在下载bibtex文件: https://dblp.org/pid/63/4317.bib?param=1
-✅ bibtex文件保存成功: /path/to/PubPeek/users/Haofen_Wang/raw/Haofen_Wang_publications.bib
+📁 创建作者目录: /path/to/PubPeek/users/Author_Name
+📁 创建raw子目录: /path/to/PubPeek/users/Author_Name/raw
+📥 正在下载bibtex文件: https://dblp.org/pid/xx/xxxx.bib?param=1
+✅ bibtex文件保存成功: /path/to/PubPeek/users/Author_Name/raw/Author_Name_publications.bib
 📊 下载了 180 个文献条目
 
-🎉 作者 AUTHOR 的设置已完成！
-📁 作者目录: /path/to/PubPeek/users/Haofen_Wang
-📄 bibtex文件: /path/to/PubPeek/users/Haofen_Wang/raw/Haofen_Wang_publications.bib
+🎉 作者 张三 的设置已完成！
+📁 作者目录: /path/to/PubPeek/users/Author_Name
+📄 bibtex文件: /path/to/PubPeek/users/Author_Name/raw/Author_Name_publications.bib
 
 🤔 是否要立即进行文献分析处理？(y/n): y
 
-📊 开始处理作者 AUTHOR 的文献...
+📊 开始处理作者 张三 的文献...
 成功加载CCF数据: 644 条记录
 成功加载中科院数据: 21772 条记录
 1. 解析BibTeX文件...
@@ -113,8 +113,8 @@ $ python run.py
 6. 生成统计摘要...
 7. 保存结果和统计分析...
 
-🎉 作者 AUTHOR 的文献处理完成！
-📊 处理结果已保存到: /path/to/PubPeek/users/Haofen_Wang/processed
+🎉 作者 张三 的文献处理完成！
+📊 处理结果已保存到: /path/to/PubPeek/users/Author_Name/processedgit
 
 ==================================================
 是否继续搜索其他作者？(y/n): n
