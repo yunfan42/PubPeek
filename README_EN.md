@@ -379,33 +379,6 @@ PubPeek/
         └── processed/     # Processing results
 ```
 
-## Main Functions
-
-### Interactive Main Program (run.py)
-
-`run.py` is the main entry file for PubPeek, providing a complete interactive scholar literature analysis solution. Main features include:
-
-- **🔍 DBLP Author Search**: Search DBLP database by author name
-- **🎯 Intelligent Candidate Matching**: Display multiple author candidates with institutional information and aliases
-- **📁 Automatic Directory Creation**: Automatically create standardized user directory structure
-- **📥 BibTeX Download**: Automatically download complete BibTeX files for authors
-- **📊 One-click Processing**: Optional automatic literature analysis processing
-- **🌐 Flexible Configuration**: Support for proxy settings and custom configuration
-- **🔄 Batch Processing**: Support for continuous processing of multiple authors
-
-### Basic Usage
-
-```bash
-# Launch interactive program
-python run.py
-
-# Then follow the prompts:
-# 1. Enter author name to search
-# 2. Select correct author candidate
-# 3. Choose whether to analyze immediately
-# 4. View results or continue searching for other authors
-```
-
 ### Output Description
 
 The program will create the following directory structure:
@@ -504,7 +477,7 @@ This current version can basically meet our daily reporting needs.
 
 Since we also want to see the community's demand for such tools to help us make better decisions, if you're interested in this work or it has helped alleviate your pain when filling out forms, please give us a Star.
 
-Possible future directions (no guarantee of implementation):
+Possible future directions:
 
 ### 1. Frontend Platform
 Currently launched through Python code, which may be challenging for people less familiar with programming who might prefer a web interface.
