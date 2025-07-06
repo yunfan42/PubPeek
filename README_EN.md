@@ -274,6 +274,43 @@ print(f"CCF Class A: {silent_summary['CCF分区']['A类']} papers")
 print(f"CAS Zone 1: {silent_summary['中科院分区']['1区']} papers")
 ```
 
+#### Year-based Filtering Analysis
+
+Support for filtering papers by year range for analysis, commonly used to evaluate scholars' academic performance in different periods:
+
+```python
+# 1. Recent 3 years analysis
+stats_recent = data_processor.analyze_paper_rankings(df_with_rankings, years_filter=3)
+
+# 2. Recent 5 years analysis
+stats_mid = data_processor.analyze_paper_rankings(df_with_rankings, years_filter=5)
+
+# 3. Custom year range analysis
+stats_custom = data_processor.analyze_paper_rankings(df_with_rankings, years_filter=(2020, 2023))
+
+# 4. Comparative analysis example
+print(f"Overall: {stats_all['total_papers']} papers, {stats_all['ccf_a_or_cas_1_ratio']:.1f}% high-quality")
+print(f"Recent 3 years: {stats_recent['total_papers']} papers, {stats_recent['ccf_a_or_cas_1_ratio']:.1f}% high-quality")
+
+# 5. Trend analysis
+current_year = 2025
+for years in [3, 5, 10]:
+    stats = data_processor.analyze_paper_rankings(df_with_rankings, 
+                                                  verbose=False, 
+                                                  years_filter=years)
+    print(f"Past {years} years: {stats['total_papers']} papers, "
+          f"CCF-A {stats['ccf_a_count']} papers, "
+          f"CAS Zone 1 {stats['cas_1_count']} papers")
+```
+
+**Year Filter Parameters:**
+- `years_filter=None`: No filtering, analyze all years (default)
+- `years_filter=3`: Past 3 years (commonly used for recent performance evaluation)
+- `years_filter=5`: Past 5 years (commonly used for mid-term performance evaluation)
+- `years_filter=(2020, 2023)`: Custom year range
+
+
+
 ## Configuration File
 
 Create a `config.json` file to customize settings:

@@ -276,6 +276,42 @@ print(f"CCF-A类: {silent_summary['CCF分区']['A类']}篇")
 print(f"中科院1区: {silent_summary['中科院分区']['1区']}篇")
 ```
 
+#### 年份筛选分析功能
+
+支持按年份范围筛选论文进行分析，常用于评估学者在不同时期的学术表现：
+
+```python
+# 1. 过去3年论文分析
+stats_recent = data_processor.analyze_paper_rankings(df_with_rankings, years_filter=3)
+
+# 2. 过去5年论文分析
+stats_mid = data_processor.analyze_paper_rankings(df_with_rankings, years_filter=5)
+
+# 3. 自定义年份范围分析
+stats_custom = data_processor.analyze_paper_rankings(df_with_rankings, years_filter=(2020, 2023))
+
+# 4. 对比分析示例
+print(f"总体概况: {stats_all['total_papers']}篇，高质量论文{stats_all['ccf_a_or_cas_1_ratio']:.1f}%")
+print(f"过去3年: {stats_recent['total_papers']}篇，高质量论文{stats_recent['ccf_a_or_cas_1_ratio']:.1f}%")
+
+# 5. 趋势分析
+current_year = 2025
+for years in [3, 5, 10]:
+    stats = data_processor.analyze_paper_rankings(df_with_rankings, 
+                                                  verbose=False, 
+                                                  years_filter=years)
+    print(f"过去{years}年: {stats['total_papers']}篇，"
+          f"CCF-A类{stats['ccf_a_count']}篇，"
+          f"中科院1区{stats['cas_1_count']}篇")
+```
+
+**年份筛选参数说明：**
+- `years_filter=None`：不筛选，分析所有年份（默认）
+- `years_filter=3`：过去3年（常用于近期表现评估）
+- `years_filter=5`：过去5年（常用于中期表现评估）
+- `years_filter=(2020, 2023)`：自定义年份范围
+
+
 ## 配置文件
 
 创建`config.json`文件来自定义设置：

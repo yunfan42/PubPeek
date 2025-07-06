@@ -434,53 +434,90 @@ class DataProcessor:
 
  
 
-    def analyze_paper_rankings(self, df_with_rankings, verbose=True):
+    def analyze_paper_rankings(self, df_with_rankings, verbose=True, years_filter=None):
         """
         分析论文分区统计
         
         Args:
             df_with_rankings: 带有分区信息的论文DataFrame
             verbose: 是否打印详细信息
+            years_filter: 年份筛选选项，可选值：
+                         - None: 不筛选，分析所有年份
+                         - 3: 过去3年
+                         - 5: 过去5年
+                         - (start_year, end_year): 自定义年份范围
             
         Returns:
             dict: 论文分区统计结果
         """
+        import datetime
+        
+        # 获取当前年份
+        current_year = datetime.datetime.now().year
+        
+        # 应用年份筛选
+        if years_filter is not None:
+            if isinstance(years_filter, int):
+                # 过去N年
+                start_year = current_year - years_filter + 1
+                end_year = current_year
+                df_filtered = df_with_rankings[
+                    (df_with_rankings['Year'] >= start_year) & 
+                    (df_with_rankings['Year'] <= end_year)
+                ]
+                year_range_str = f"过去{years_filter}年 ({start_year}-{end_year})"
+            elif isinstance(years_filter, tuple) and len(years_filter) == 2:
+                # 自定义年份范围
+                start_year, end_year = years_filter
+                df_filtered = df_with_rankings[
+                    (df_with_rankings['Year'] >= start_year) & 
+                    (df_with_rankings['Year'] <= end_year)
+                ]
+                year_range_str = f"{start_year}-{end_year}年"
+            else:
+                raise ValueError("years_filter参数格式不正确，应为整数或(start_year, end_year)元组")
+        else:
+            df_filtered = df_with_rankings
+            year_range_str = "所有年份"
+        
         if verbose:
-            print("=== 论文分区统计分析 ===")
+            print(f"=== 论文分区统计分析 ({year_range_str}) ===")
         
         # 基本统计
-        total_papers = len(df_with_rankings)
+        total_papers = len(df_filtered)
         
         # CCF分区统计
-        ccf_a_papers = df_with_rankings[df_with_rankings['CCF_Rank'] == 'A类']
-        ccf_b_papers = df_with_rankings[df_with_rankings['CCF_Rank'] == 'B类']
-        ccf_c_papers = df_with_rankings[df_with_rankings['CCF_Rank'] == 'C类']
+        ccf_a_papers = df_filtered[df_filtered['CCF_Rank'] == 'A类']
+        ccf_b_papers = df_filtered[df_filtered['CCF_Rank'] == 'B类']
+        ccf_c_papers = df_filtered[df_filtered['CCF_Rank'] == 'C类']
         
         # 中科院分区统计
-        cas_1_papers = df_with_rankings[df_with_rankings['CAS_Zone'] == '1区']
-        cas_2_papers = df_with_rankings[df_with_rankings['CAS_Zone'] == '2区']
-        cas_3_papers = df_with_rankings[df_with_rankings['CAS_Zone'] == '3区']
-        cas_4_papers = df_with_rankings[df_with_rankings['CAS_Zone'] == '4区']
+        cas_1_papers = df_filtered[df_filtered['CAS_Zone'] == '1区']
+        cas_2_papers = df_filtered[df_filtered['CAS_Zone'] == '2区']
+        cas_3_papers = df_filtered[df_filtered['CAS_Zone'] == '3区']
+        cas_4_papers = df_filtered[df_filtered['CAS_Zone'] == '4区']
         
         # 中科院TOP期刊论文统计
-        cas_top_papers = df_with_rankings[df_with_rankings['CAS_Top'] == '是']
+        cas_top_papers = df_filtered[df_filtered['CAS_Top'] == '是']
         
         # 组合统计（去重）
         # 1. CCF-A + 中科院一区 (并集)
-        ccf_a_or_cas_1 = df_with_rankings[
-            (df_with_rankings['CCF_Rank'] == 'A类') | 
-            (df_with_rankings['CAS_Zone'] == '1区')
+        ccf_a_or_cas_1 = df_filtered[
+            (df_filtered['CCF_Rank'] == 'A类') | 
+            (df_filtered['CAS_Zone'] == '1区')
         ]
         
         # 2. CCF-A + CCF-B + 中科院一区和二区 (并集)
-        ccf_ab_or_cas_12 = df_with_rankings[
-            (df_with_rankings['CCF_Rank'].isin(['A类', 'B类'])) |
-            (df_with_rankings['CAS_Zone'].isin(['1区', '2区']))
+        ccf_ab_or_cas_12 = df_filtered[
+            (df_filtered['CCF_Rank'].isin(['A类', 'B类'])) |
+            (df_filtered['CAS_Zone'].isin(['1区', '2区']))
         ]
         
         # 构建统计结果
         stats = {
             'total_papers': total_papers,
+            'year_range': year_range_str,
+            'filtered_data': df_filtered,
             
             # CCF分区统计
             'ccf_a_count': len(ccf_a_papers),
